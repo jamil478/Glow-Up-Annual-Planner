@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow Up Annual Planner ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #FFD6E0;
+    --rose: #F4A7B9;
+    --rose-deep: #B76E79;
+    --rose-dark: #8B4A55;
+    --cream: #FFF8F5;
+    --cream-mid: #FFF0EC;
+    --gold: #D4A574;
+    --gold-light: #F0D5B8;
+    --charcoal: #2D2D2D;
+    --gray: #888;
+    --light-gray: #F5F5F5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(135deg, #FFF0EC 0%, #FFD6E0 30%, #FFF8F5 60%, #F9E4EC 100%);
+    min-height: 100vh;
+    color: var(--charcoal);
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,248,245,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(183,110,121,0.15);
+    padding: 14px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(183,110,121,0.1);
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; color: var(--rose-dark);
+    letter-spacing: 0.03em;
+  }
+  .nav-tabs {
+    display: flex; gap: 6px; overflow-x: auto;
+    scrollbar-width: none; flex: 1; margin: 0 16px;
+    justify-content: center;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 6px 14px; border: 1.5px solid rgba(183,110,121,0.3);
+    background: transparent; border-radius: 20px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.72rem;
+    color: var(--rose-deep); cursor: pointer; white-space: nowrap;
+    transition: all 0.25s ease;
+  }
+  .tab-btn:hover, .tab-btn.active {
+    background: var(--rose-deep); color: white;
+    border-color: var(--rose-deep);
+    box-shadow: 0 4px 12px rgba(183,110,121,0.35);
+  }
+  .nav-num { font-size: 0.65rem; color: var(--gray); }
+
+  /* ── MAIN ── */
+  .main { padding-top: 80px; }
+
+  /* ── PAGES ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── A4 WRAPPER ── */
+  .a4 {
+    max-width: 794px; margin: 30px auto;
+    background: var(--cream);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(183,110,121,0.18), 0 4px 15px rgba(0,0,0,0.06);
+    overflow: hidden;
+    animation: fadeUp 0.5s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ══════════════════════════════
+     PAGE 1 — COVER
+  ══════════════════════════════ */
+  .cover {
+    min-height: 900px;
+    background: linear-gradient(160deg, #FFD6E0 0%, #FFF0EC 40%, #F9D8E2 70%, #FFD6E0 100%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 60px 40px; text-align: center;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(212,165,116,0.12) 0%, transparent 50%),
+      radial-gradient(circle at 85% 75%, rgba(183,110,121,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .cover-deco {
+    position: absolute;
+    font-size: 6rem; opacity: 0.07; pointer-events: none;
+  }
+  .cover-deco.tl { top: 30px; left: 20px; transform: rotate(-15deg); }
+  .cover-deco.tr { top: 50px; right: 30px; transform: rotate(15deg); font-size: 4rem; }
+  .cover-deco.bl { bottom: 60px; left: 40px; font-size: 5rem; transform: rotate(10deg); }
+  .cover-deco.br { bottom: 40px; right: 20px; transform: rotate(-10deg); }
+
+  .bow { font-size: 3rem; margin-bottom: 8px; display: block; }
+  .cover-eyebrow {
+    font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--rose-deep); margin-bottom: 16px;
+    background: rgba(183,110,121,0.1); padding: 6px 20px; border-radius: 20px;
+  }
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--rose-dark); margin-bottom: 8px;
+  }
+  .cover-title em {
+    font-style: italic; color: var(--rose-deep);
+    display: block; font-size: 0.65em;
+  }
+  .cover-script {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-style: italic; font-weight: 300;
+    color: var(--gold); margin: 12px 0;
+  }
+  .cover-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--rose-deep);
+    opacity: 0.25; line-height: 1;
+    position: absolute; bottom: 120px;
+  }
+  .cover-divider {
+    width: 80px; height: 1.5px;
+    background: linear-gradient(90deg, transparent, var(--rose-deep), transparent);
+    margin: 20px auto;
+  }
+  .cover-tagline {
+    font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
+    color: var(--rose-deep); line-height: 1.7; max-width: 360px;
+    opacity: 0.85;
+  }
+  .cover-name-box {
+    margin-top: 40px;
+    border: 1.5px solid rgba(183,110,121,0.4);
+    border-radius: 12px; padding: 20px 40px;
+    text-align: center; width: 100%; max-width: 340px;
+    background: rgba(255,255,255,0.5);
+  }
+  .cover-name-label {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gray); margin-bottom: 8px;
+  }
+  .cover-name-line {
+    width: 100%; border: none; border-bottom: 1px dashed rgba(183,110,121,0.5);
+    background: transparent; text-align: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+    color: var(--charcoal); outline: none; padding: 4px 0;
+  }
+
+  /* ══════════════════════════════
+     SHARED PAGE HEADER
+  ══════════════════════════════ */
+  .page-header {
+    background: linear-gradient(135deg, var(--blush) 0%, var(--cream-mid) 100%);
+    padding: 36px 48px 28px;
+    border-bottom: 1px solid rgba(183,110,121,0.1);
+    position: relative; overflow: hidden;
+  }
+  .page-header::after {
+    content: attr(data-icon);
+    position: absolute; right: 40px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem; opacity: 0.12;
+  }
+  .ph-number {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--rose-deep); margin-bottom: 6px;
+  }
+  .ph-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700;
+    color: var(--rose-dark); line-height: 1.15;
+  }
+  .ph-title em { font-style: italic; color: var(--rose-deep); }
+  .ph-sub {
+    font-size: 0.82rem; color: var(--gray);
+    margin-top: 6px; font-style: italic;
+  }
+
+  /* ══════════════════════════════
+     PAGE BODY
+  ══════════════════════════════ */
+  .page-body { padding: 36px 48px 48px; }
+
+  /* ── SECTION LABEL ── */
+  .sec-label {
+    font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rose-deep); margin-bottom: 12px; margin-top: 28px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sec-label::before, .sec-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: rgba(183,110,121,0.25);
+  }
+
+  /* ── WRITE FIELD ── */
+  .write-field {
+    width: 100%; border: none;
+    border-bottom: 1.5px solid rgba(183,110,121,0.25);
+    background: transparent; padding: 10px 4px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+    color: var(--charcoal); outline: none; display: block;
+    transition: border-color 0.2s;
+  }
+  .write-field:focus { border-bottom-color: var(--rose-deep); }
+  .write-field.tall { min-height: 80px; resize: none; border: 1.5px solid rgba(183,110,121,0.25); border-radius: 8px; padding: 12px; }
+  .write-field.medium { min-height: 56px; resize: none; border: 1.5px solid rgba(183,110,121,0.25); border-radius: 8px; padding: 10px 12px; }
+
+  /* ── CARD BOX ── */
+  .card {
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(183,110,121,0.15);
+    border-radius: 12px; padding: 20px;
+    margin-bottom: 14px;
+  }
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 600; color: var(--rose-dark);
+    margin-bottom: 12px;
+  }
+
+  /* ── GRID ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+
+  /* ── CHECKLIST ── */
+  .check-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0; border-bottom: 1px dashed rgba(183,110,121,0.15);
+  }
+  .check-row:last-child { border-bottom: none; }
+  .check-box {
+    width: 18px; height: 18px; border: 1.5px solid var(--rose);
+    border-radius: 4px; flex-shrink: 0; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; background: white;
+  }
+  .check-box.checked { background: var(--rose-deep); border-color: var(--rose-deep); }
+  .check-box.checked::after { content: '✓'; color: white; font-size: 0.7rem; }
+  .check-label { font-size: 0.82rem; color: var(--charcoal); flex: 1; }
+
+  /* ── MOOD CIRCLES ── */
+  .mood-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+  .mood-dot {
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 2px solid rgba(183,110,121,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; cursor: pointer; transition: all 0.2s;
+    background: white;
+  }
+  .mood-dot:hover, .mood-dot.sel {
+    transform: scale(1.15);
+    border-color: var(--rose-deep);
+    box-shadow: 0 4px 12px rgba(183,110,121,0.25);
+  }
+  .mood-name { font-size: 0.55rem; text-align: center; color: var(--gray); margin-top: 4px; }
+
+  /* ── TRACKER BAR ── */
+  .tracker-row {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+  }
+  .tracker-label { font-size: 0.75rem; color: var(--charcoal); min-width: 90px; }
+  .tracker-dots { display: flex; gap: 6px; }
+  .t-dot {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 1.5px solid rgba(183,110,121,0.35);
+    background: white; cursor: pointer;
+    transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+    font-size: 0.6rem; color: transparent;
+  }
+  .t-dot.fill { background: var(--rose); border-color: var(--rose-deep); color: white; }
+  .t-dot.fill::after { content: '✓'; font-size: 0.65rem; }
+
+  /* ── STARS RATING ── */
+  .stars { display: flex; gap: 4px; }
+  .star { font-size: 1.2rem; cursor: pointer; color: #ddd; transition: color 0.2s; }
+  .star.lit { color: var(--gold); }
+
+  /* ── MONTH GRID ── */
+  .month-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .month-card {
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(183,110,121,0.2);
+    border-radius: 10px; padding: 14px 16px;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .month-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(183,110,121,0.15); }
+  .month-card.done { background: linear-gradient(135deg, rgba(183,110,121,0.08), rgba(212,165,116,0.08)); }
+  .month-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 600; color: var(--rose-dark); margin-bottom: 8px;
+  }
+  .month-lines { display: flex; flex-direction: column; gap: 5px; }
+  .month-line { height: 1px; background: rgba(183,110,121,0.2); border-radius: 1px; }
+
+  /* ── HABIT TABLE ── */
+  .habit-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+  .habit-table th {
+    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--rose-deep); padding: 8px 6px; text-align: center;
+    border-bottom: 1.5px solid rgba(183,110,121,0.2);
+  }
+  .habit-table th.habit-col { text-align: left; min-width: 120px; }
+  .habit-table td { padding: 7px 6px; text-align: center; border-bottom: 1px dashed rgba(183,110,121,0.1); }
+  .habit-table td.habit-cell input {
+    border: none; background: transparent; font-size: 0.8rem; width: 100%;
+    color: var(--charcoal); outline: none; font-family: 'DM Sans', sans-serif;
+  }
+  .h-check {
+    width: 20px; height: 20px; border: 1.5px solid rgba(183,110,121,0.4);
+    border-radius: 4px; margin: 0 auto; cursor: pointer;
+    background: white; transition: all 0.2s;
+  }
+  .h-check.on { background: var(--rose); border-color: var(--rose-deep); }
+
+  /* ── FINANCE ── */
+  .finance-bar-wrap { background: rgba(183,110,121,0.1); border-radius: 20px; height: 14px; margin: 8px 0; overflow: hidden; }
+  .finance-bar { height: 100%; background: linear-gradient(90deg, var(--rose), var(--rose-deep)); border-radius: 20px; transition: width 0.6s ease; }
+
+  /* ── AFFIRMATION BOX ── */
+  .affirmation-box {
+    background: linear-gradient(135deg, rgba(183,110,121,0.08), rgba(212,165,116,0.08));
+    border: 1.5px solid rgba(183,110,121,0.2);
+    border-radius: 14px; padding: 24px;
+    text-align: center; margin-bottom: 20px;
+  }
+  .affirmation-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-style: italic; color: var(--rose-dark);
+    line-height: 1.6;
+  }
+
+  /* ── WATER DROPS ── */
+  .drop-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+  .drop {
+    width: 36px; height: 44px;
+    background: white;
+    border: 1.5px solid rgba(183,110,121,0.3);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .drop.filled { background: linear-gradient(180deg, rgba(135,206,250,0.6), rgba(70,170,220,0.7)); border-color: #4AAAE6; }
+  .drop:hover { transform: scale(1.1); }
+
+  /* ── SLEEP BARS ── */
+  .sleep-row { display: flex; gap: 6px; align-items: flex-end; height: 60px; margin-top: 8px; }
+  .sleep-bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .sleep-bar-day { font-size: 0.6rem; color: var(--gray); }
+  .sleep-bar {
+    width: 24px; background: rgba(183,110,121,0.15);
+    border-radius: 4px 4px 0 0; cursor: pointer;
+    border: 1px solid rgba(183,110,121,0.2);
+    transition: all 0.2s; position: relative;
+  }
+  .sleep-bar.active, .sleep-bar:hover { background: var(--rose); }
+
+  /* ── VISION BOARD ── */
+  .vision-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; gap: 12px; }
+  .vision-cell {
+    background: rgba(255,255,255,0.6);
+    border: 1.5px dashed rgba(183,110,121,0.3);
+    border-radius: 10px; padding: 16px;
+    min-height: 90px;
+    display: flex; flex-direction: column;
+  }
+  .vision-cell.large { grid-column: span 2; }
+  .vision-cell-label {
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--rose-deep); margin-bottom: 8px;
+  }
+  .vision-cell textarea {
+    border: none; background: transparent; resize: none; flex: 1;
+    font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
+    color: var(--charcoal); outline: none; min-height: 50px;
+  }
+
+  /* ══ FOOTER STRIP ══ */
+  .page-footer {
+    padding: 16px 48px;
+    background: rgba(183,110,121,0.05);
+    border-top: 1px solid rgba(183,110,121,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .pf-brand { font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; color: var(--rose-deep); font-style: italic; }
+  .pf-page { font-size: 0.65rem; color: var(--gray); }
+
+  /* ══ PRINT BTN ══ */
+  .print-bar {
+    max-width: 794px; margin: 0 auto 16px;
+    display: flex; gap: 10px; justify-content: flex-end; padding: 0 4px;
+  }
+  .btn-print {
+    background: linear-gradient(135deg, var(--rose-deep), var(--rose-dark));
+    color: white; border: none; padding: 10px 24px;
+    border-radius: 24px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem;
+    cursor: pointer; letter-spacing: 0.05em;
+    box-shadow: 0 4px 14px rgba(183,110,121,0.4);
+    transition: all 0.2s;
+  }
+  .btn-print:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(183,110,121,0.5); }
+
+  /* ── GLOW BADGE ── */
+  .glow-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: linear-gradient(135deg, var(--rose), var(--gold-light));
+    padding: 5px 14px; border-radius: 20px;
+    font-size: 0.7rem; color: var(--rose-dark); font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(183,110,121,0.06), rgba(212,165,116,0.06));
+    border-left: 3px solid var(--rose-deep);
+    border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0;
+  }
+  .highlight-box p { font-size: 0.82rem; line-height: 1.7; color: var(--charcoal); }
+
+  /* ── YEAR REFLECTION ── */
+  .reflect-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  .reflect-col {
+    background: rgba(255,255,255,0.6); border-radius: 12px;
+    border: 1px solid rgba(183,110,121,0.15); padding: 18px;
+  }
+  .rc-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
+  .rc-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--rose-dark); margin-bottom: 8px; }
+
+  @media print {
+    .nav, .print-bar { display: none !important; }
+    .main { padding-top: 0; }
+    .a4 { margin: 0; border-radius: 0; box-shadow: none; }
+    .page { display: block !important; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">✨ Glow Up Planner</div>
+  <div class="nav-tabs" id="navTabs"></div>
+  <div class="nav-num" id="navNum">1 / 12</div>
+</nav>
+
+<div class="main">
+
+<!-- ══════════════════════════════════════════
+  PAGE 1 — COVER
+══════════════════════════════════════════ -->
+<div class="page active" id="p1">
+  <div class="print-bar">
+    <button class="btn-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+  </div>
+  <div class="a4">
+    <div class="cover">
+      <span class="cover-deco tl">🌸</span>
+      <span class="cover-deco tr">✨</span>
+      <span class="cover-deco bl">💕</span>
+      <span class="cover-deco br">🌹</span>
+
+      <span class="bow">🎀</span>
+      <div class="cover-eyebrow">✦ Annual Transformation Planner ✦</div>
+      <div class="cover-title">My Glow Up <em>Era</em></div>
+      <div class="cover-script">— bloom into your best self —</div>
+      <div class="cover-divider"></div>
+      <div class="cover-tagline">A 12-month journey of physical & mental transformation. Track your habits, celebrate your wins, and glow up — mind, body & soul. 🌸</div>
+      <div class="cover-year">2025</div>
+
+      <div class="cover-name-box" style="margin-top: 80px;">
+        <div class="cover-name-label">This planner belongs to</div>
+        <input class="cover-name-line" type="text" placeholder="Your name here ✦">
+      </div>
+      <div style="margin-top: 16px; font-size: 0.72rem; color: var(--gray); letter-spacing: 0.1em;">START DATE _________ &nbsp;&nbsp; END DATE _________</div>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 1 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 2 — VISION BOARD
+══════════════════════════════════════════ -->
+<div class="page" id="p2">
+  <div class="a4">
+    <div class="page-header" data-icon="🌟">
+      <div class="ph-number">Page 02 · Vision</div>
+      <div class="ph-title">My Dream Life <em>This Year</em></div>
+      <div class="ph-sub">Visualize your glow up. Write, dream, manifest.</div>
+    </div>
+    <div class="page-body">
+      <div class="affirmation-box">
+        <div class="affirmation-text">"I am becoming the most beautiful, powerful version of myself — one day at a time." 🌸</div>
+      </div>
+
+      <div class="sec-label">✦ Vision Board Areas ✦</div>
+      <div class="vision-grid">
+        <div class="vision-cell large">
+          <div class="vision-cell-label">💫 My #1 Glow Up Goal This Year</div>
+          <textarea placeholder="e.g. Build confidence, feel strong in my body, heal my skin..."></textarea>
+        </div>
+        <div class="vision-cell">
+          <div class="vision-cell-label">💪 Body & Fitness</div>
+          <textarea placeholder="How I want to feel physically..."></textarea>
+        </div>
+        <div class="vision-cell">
+          <div class="vision-cell-label">🧴 Skin & Beauty</div>
+          <textarea placeholder="My dream skin goals..."></textarea>
+        </div>
+        <div class="vision-cell">
+          <div class="vision-cell-label">🧠 Mindset & Mental Health</div>
+          <textarea placeholder="Who I'm becoming mentally..."></textarea>
+        </div>
+        <div class="vision-cell">
+          <div class="vision-cell-label">💰 Finance & Career</div>
+          <textarea placeholder="My financial glow up..."></textarea>
+        </div>
+        <div class="vision-cell">
+          <div class="vision-cell-label">🌸 Self-Care & Lifestyle</div>
+          <textarea placeholder="Daily rituals I'll build..."></textarea>
+        </div>
+        <div class="vision-cell">
+          <div class="vision-cell-label">💕 Relationships</div>
+          <textarea placeholder="Energy I want to attract..."></textarea>
+        </div>
+        <div class="vision-cell large">
+          <div class="vision-cell-label">✨ My Word(s) of the Year</div>
+          <textarea placeholder="e.g. Radiant. Disciplined. Enough. Magnetic..."></textarea>
+        </div>
+      </div>
+
+      <div class="sec-label">✦ My Glow Up Promise to Myself ✦</div>
+      <textarea class="write-field tall" placeholder="Write a commitment letter to yourself..."></textarea>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 2 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 3 — MONTHLY GOALS
+══════════════════════════════════════════ -->
+<div class="page" id="p3">
+  <div class="a4">
+    <div class="page-header" data-icon="📅">
+      <div class="ph-number">Page 03 · Monthly Overview</div>
+      <div class="ph-title">Monthly <em>Glow Up Goals</em></div>
+      <div class="ph-sub">Set one powerful intention for each month of the year.</div>
+    </div>
+    <div class="page-body">
+      <div class="month-grid" id="monthGrid"></div>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 3 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 4 — WEEKLY RESET
+══════════════════════════════════════════ -->
+<div class="page" id="p4">
+  <div class="a4">
+    <div class="page-header" data-icon="🔄">
+      <div class="ph-number">Page 04 · Weekly</div>
+      <div class="ph-title">Weekly <em>Reset Planner</em></div>
+      <div class="ph-sub">Reset, refocus, and glow up every single week.</div>
+    </div>
+    <div class="page-body">
+      <div class="grid-2">
+        <div>
+          <div class="sec-label">✦ Week Focus ✦</div>
+          <input class="write-field" placeholder="Week of: _______________">
+          <input class="write-field" placeholder="This week's main intention...">
+          <div class="sec-label" style="margin-top: 20px;">✦ Top 3 Wins From Last Week ✦</div>
+          <input class="write-field" placeholder="1. ____________________________">
+          <input class="write-field" placeholder="2. ____________________________">
+          <input class="write-field" placeholder="3. ____________________________">
+          <div class="sec-label" style="margin-top: 20px;">✦ This Week's Focus Areas ✦</div>
+          <input class="write-field" placeholder="Body goal: ____________________">
+          <input class="write-field" placeholder="Mind goal: ____________________">
+          <input class="write-field" placeholder="Soul goal: ____________________">
+        </div>
+        <div>
+          <div class="sec-label">✦ Mood This Week ✦</div>
+          <div class="mood-row" id="weekMood"></div>
+          <div class="sec-label" style="margin-top: 20px;">✦ Energy Level ✦</div>
+          <div class="stars" id="energyStars"></div>
+          <div style="font-size:0.7rem; color:var(--gray); margin-top:4px;">Tap stars to rate</div>
+          <div class="sec-label" style="margin-top: 20px;">✦ Weekly Self-Care Checklist ✦</div>
+          <div id="weekChecks"></div>
+        </div>
+      </div>
+      <div class="sec-label" style="margin-top: 4px;">✦ Lessons Learned This Week ✦</div>
+      <textarea class="write-field medium" placeholder="What did I learn about myself? What would I do differently?"></textarea>
+      <div class="sec-label">✦ Affirmation for Next Week ✦</div>
+      <input class="write-field" placeholder="I am...">
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 4 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 5 — DAILY RESET
+══════════════════════════════════════════ -->
+<div class="page" id="p5">
+  <div class="a4">
+    <div class="page-header" data-icon="☀️">
+      <div class="ph-number">Page 05 · Daily</div>
+      <div class="ph-title">Daily <em>Reset Page</em></div>
+      <div class="ph-sub">Start with intention. End with reflection. Repeat daily.</div>
+    </div>
+    <div class="page-body">
+      <div style="text-align:center; margin-bottom: 20px;">
+        <div class="glow-badge">🌸 Today's Date &nbsp;<input style="border:none; background:transparent; font-size:0.7rem; outline:none; width:100px; border-bottom:1px dashed rgba(183,110,121,0.5);" placeholder="___________"></div>
+      </div>
+      <div class="grid-2">
+        <div>
+          <div class="sec-label">🌅 Morning Ritual</div>
+          <textarea class="write-field medium" placeholder="My intention for today..."></textarea>
+          <input class="write-field" style="margin-top:10px;" placeholder="Top 1 priority today: _______________">
+          <input class="write-field" placeholder="I am grateful for: _________________">
+          <input class="write-field" placeholder="My affirmation: ___________________">
+          <div class="sec-label" style="margin-top: 16px;">🌅 Morning Checklist</div>
+          <div id="morningChecks"></div>
+        </div>
+        <div>
+          <div class="sec-label">🌙 Evening Reset</div>
+          <textarea class="write-field medium" placeholder="My biggest win today..."></textarea>
+          <input class="write-field" style="margin-top:10px;" placeholder="Something that challenged me...">
+          <input class="write-field" placeholder="What I'll release tonight...">
+          <input class="write-field" placeholder="Tomorrow I want to focus on...">
+          <div class="sec-label" style="margin-top: 16px;">🌙 Evening Checklist</div>
+          <div id="eveningChecks"></div>
+        </div>
+      </div>
+      <div class="sec-label">✦ Today's Mood ✦</div>
+      <div class="mood-row" id="dailyMood"></div>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 5 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 6 — FITNESS & BODY
+══════════════════════════════════════════ -->
+<div class="page" id="p6">
+  <div class="a4">
+    <div class="page-header" data-icon="💪">
+      <div class="ph-number">Page 06 · Fitness</div>
+      <div class="ph-title">Fitness & <em>Body Tracker</em></div>
+      <div class="ph-sub">Track your physical transformation with love, not obsession.</div>
+    </div>
+    <div class="page-body">
+      <div class="sec-label">✦ My Body Goals ✦</div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">🎯 Goal Weight</div>
+          <input class="write-field" placeholder="_______ kg/lbs">
+        </div>
+        <div class="card">
+          <div class="card-title">📅 Goal Date</div>
+          <input class="write-field" placeholder="___________">
+        </div>
+        <div class="card">
+          <div class="card-title">💪 Fitness Goal</div>
+          <input class="write-field" placeholder="e.g. Run 5K">
+        </div>
+      </div>
+      <div class="sec-label">✦ Monthly Measurement Tracker ✦</div>
+      <table class="habit-table" style="margin-bottom: 20px;">
+        <thead>
+          <tr>
+            <th class="habit-col">Measurement</th>
+            <th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th>
+            <th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
+          </tr>
+        </thead>
+        <tbody id="measureTable"></tbody>
+      </table>
+      <div class="sec-label">✦ Weekly Workout Log ✦</div>
+      <div id="workoutLog"></div>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 6 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 7 — SKINCARE
+══════════════════════════════════════════ -->
+<div class="page" id="p7">
+  <div class="a4">
+    <div class="page-header" data-icon="🧴">
+      <div class="ph-number">Page 07 · Skincare</div>
+      <div class="ph-title">Skincare <em>Routine Tracker</em></div>
+      <div class="ph-sub">Your glow starts with consistent skin care. Track every step.</div>
+    </div>
+    <div class="page-body">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">☀️ AM Skincare Routine</div>
+          <div id="amSkincare"></div>
+        </div>
+        <div class="card">
+          <div class="card-title">🌙 PM Skincare Routine</div>
+          <div id="pmSkincare"></div>
+        </div>
+      </div>
+      <div class="sec-label" style="margin-top: 20px;">✦ Products I'm Currently Using ✦</div>
+      <div class="grid-2">
+        <div>
+          <input class="write-field" placeholder="Cleanser: _______________________">
+          <input class="write-field" placeholder="Toner: __________________________">
+          <input class="write-field" placeholder="Serum: __________________________">
+          <input class="write-field" placeholder="Moisturizer: ____________________">
+          <input class="write-field" placeholder="SPF: ____________________________">
+        </div>
+        <div>
+          <input class="write-field" placeholder="Eye Cream: ______________________">
+          <input class="write-field" placeholder="Mask (weekly): __________________">
+          <input class="write-field" placeholder="Exfoliator: _____________________">
+          <input class="write-field" placeholder="Face Oil: _______________________">
+          <input class="write-field" placeholder="Other: __________________________">
+        </div>
+      </div>
+      <div class="sec-label">✦ Monthly Skin Check-In ✦</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Skin Concerns This Month</div>
+          <textarea class="write-field medium" placeholder="Breakouts, dryness, texture..."></textarea>
+        </div>
+        <div class="card">
+          <div class="card-title">What's Working ✨</div>
+          <textarea class="write-field medium" placeholder="Products, habits, diet changes..."></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 7 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 8 — MENTAL HEALTH & MOOD
+══════════════════════════════════════════ -->
+<div class="page" id="p8">
+  <div class="a4">
+    <div class="page-header" data-icon="🧠">
+      <div class="ph-number">Page 08 · Mental Health</div>
+      <div class="ph-title">Mental Health & <em>Mood Tracker</em></div>
+      <div class="ph-sub">Your mind is your most powerful beauty tool. Nurture it daily.</div>
+    </div>
+    <div class="page-body">
+      <div class="sec-label">✦ Monthly Mood Calendar ✦</div>
+      <div class="affirmation-box" style="margin-bottom: 16px;">
+        <div style="font-size: 0.75rem; color: var(--rose-deep); margin-bottom: 8px; letter-spacing: 0.1em; text-transform: uppercase;">Color Key</div>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <span style="font-size:0.72rem;">😄 Amazing &nbsp;😊 Good &nbsp;😐 Okay &nbsp;😔 Low &nbsp;😤 Stressed &nbsp;💆 Calm</span>
+        </div>
+      </div>
+      <div id="moodCalendar" style="display:grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-bottom: 24px;"></div>
+      <div class="sec-label">✦ Mental Health Check-In ✦</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">💭 What's on my mind?</div>
+          <textarea class="write-field tall" placeholder="Brain dump — write freely..."></textarea>
+        </div>
+        <div class="card">
+          <div class="card-title">🌱 Coping Tools That Help Me</div>
+          <div id="copingChecks"></div>
+        </div>
+      </div>
+      <div class="sec-label">✦ Therapy / Journaling Notes ✦</div>
+      <textarea class="write-field tall" placeholder="Insights from therapy, journaling, or self-reflection..."></textarea>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 8 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 9 — WATER & SLEEP
+══════════════════════════════════════════ -->
+<div class="page" id="p9">
+  <div class="a4">
+    <div class="page-header" data-icon="💧">
+      <div class="ph-number">Page 09 · Wellness</div>
+      <div class="ph-title">Water & <em>Sleep Tracker</em></div>
+      <div class="ph-sub">Hydration and rest are your first glow up secrets.</div>
+    </div>
+    <div class="page-body">
+      <div class="grid-2">
+        <div>
+          <div class="sec-label">💧 Daily Water Intake</div>
+          <div style="font-size:0.72rem; color:var(--gray); margin-bottom:8px;">Goal: 8 glasses / 2 litres per day. Tap drops to track.</div>
+          <div style="margin-bottom: 16px;">
+            <div style="font-size:0.75rem; color:var(--charcoal); margin-bottom:6px;">Monday</div>
+            <div class="drop-row" id="drops_mon"></div>
+          </div>
+          <div style="margin-bottom: 16px;">
+            <div style="font-size:0.75rem; color:var(--charcoal); margin-bottom:6px;">Tuesday</div>
+            <div class="drop-row" id="drops_tue"></div>
+          </div>
+          <div style="margin-bottom: 16px;">
+            <div style="font-size:0.75rem; color:var(--charcoal); margin-bottom:6px;">Wednesday</div>
+            <div class="drop-row" id="drops_wed"></div>
+          </div>
+          <div style="margin-bottom: 16px;">
+            <div style="font-size:0.75rem; color:var(--charcoal); margin-bottom:6px;">Thursday</div>
+            <div class="drop-row" id="drops_thu"></div>
+          </div>
+          <div style="margin-bottom: 16px;">
+            <div style="font-size:0.75rem; color:var(--charcoal); margin-bottom:6px;">Friday</div>
+            <div class="drop-row" id="drops_fri"></div>
+          </div>
+          <div style="margin-bottom: 16px;">
+            <div style="font-size:0.75rem; color:var(--charcoal); margin-bottom:6px;">Saturday</div>
+            <div class="drop-row" id="drops_sat"></div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem; color:var(--charcoal); margin-bottom:6px;">Sunday</div>
+            <div class="drop-row" id="drops_sun"></div>
+          </div>
+        </div>
+        <div>
+          <div class="sec-label">🌙 Weekly Sleep Tracker</div>
+          <div style="font-size:0.72rem; color:var(--gray); margin-bottom:12px;">Goal: 7–9 hours per night</div>
+          <div id="sleepTracker"></div>
+          <div class="sec-label" style="margin-top: 20px;">💤 Sleep Notes</div>
+          <textarea class="write-field tall" placeholder="Sleep quality, dreams, wake-up time notes..."></textarea>
+          <div class="sec-label">✦ Bedtime Rituals</div>
+          <div id="sleepChecks"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 9 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 10 — HABIT TRACKER
+══════════════════════════════════════════ -->
+<div class="page" id="p10">
+  <div class="a4">
+    <div class="page-header" data-icon="📊">
+      <div class="ph-number">Page 10 · Habits</div>
+      <div class="ph-title">Monthly <em>Habit Tracker</em></div>
+      <div class="ph-sub">Consistency is the secret to every glow up. Track your 31 days.</div>
+    </div>
+    <div class="page-body">
+      <div style="overflow-x: auto;">
+        <table class="habit-table" id="habitTable"></table>
+      </div>
+      <div class="sec-label" style="margin-top: 20px;">✦ Month: ✦</div>
+      <input class="write-field" style="max-width:200px;" placeholder="Month / Year">
+      <div class="highlight-box" style="margin-top: 16px;">
+        <p>💡 <strong>Tip:</strong> Choose 5–8 habits max. Less is more — consistency beats quantity. Color in each box when complete.</p>
+      </div>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 10 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 11 — MANIFESTATION & AFFIRMATIONS
+══════════════════════════════════════════ -->
+<div class="page" id="p11">
+  <div class="a4">
+    <div class="page-header" data-icon="✨">
+      <div class="ph-number">Page 11 · Manifestation</div>
+      <div class="ph-title">Manifestation & <em>Affirmation Journal</em></div>
+      <div class="ph-sub">What you believe, you become. Write it. Feel it. Receive it.</div>
+    </div>
+    <div class="page-body">
+      <div class="affirmation-box">
+        <div class="affirmation-text">"She decided to glow — and so she did." 🌹</div>
+      </div>
+      <div class="sec-label">✦ My Top 5 Manifestations This Year ✦</div>
+      <div id="manifestList"></div>
+      <div class="sec-label">✦ Daily Affirmations (Write 3 per day) ✦</div>
+      <div class="grid-3" style="margin-bottom: 16px;">
+        <div class="card">
+          <div class="card-title">I AM...</div>
+          <input class="write-field" placeholder="I am radiant">
+          <input class="write-field" placeholder="I am enough">
+          <input class="write-field" placeholder="I am magnetic">
+        </div>
+        <div class="card">
+          <div class="card-title">I HAVE...</div>
+          <input class="write-field" placeholder="I have clarity">
+          <input class="write-field" placeholder="I have abundance">
+          <input class="write-field" placeholder="I have energy">
+        </div>
+        <div class="card">
+          <div class="card-title">I ATTRACT...</div>
+          <input class="write-field" placeholder="I attract love">
+          <input class="write-field" placeholder="I attract success">
+          <input class="write-field" placeholder="I attract peace">
+        </div>
+      </div>
+      <div class="sec-label">✦ Scripting — Write as if it already happened ✦</div>
+      <textarea class="write-field tall" placeholder="Today I woke up feeling... / I am so grateful that I now have... / My life looks like..."></textarea>
+      <div class="sec-label">✦ Evidence Log — Signs & Synchronicities ✦</div>
+      <textarea class="write-field medium" placeholder="Record moments that confirm your manifestations are working..."></textarea>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 11 of 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  PAGE 12 — YEAR-END REFLECTION
+══════════════════════════════════════════ -->
+<div class="page" id="p12">
+  <div class="a4">
+    <div class="page-header" data-icon="🌹">
+      <div class="ph-number">Page 12 · Year-End</div>
+      <div class="ph-title">How Much <em>I've Glowed Up</em></div>
+      <div class="ph-sub">Look back with pride. You did the work. You deserve to celebrate.</div>
+    </div>
+    <div class="page-body">
+      <div class="affirmation-box">
+        <div class="affirmation-text">"I started as a seed. I am leaving as a flower." 🌸</div>
+      </div>
+      <div class="sec-label">✦ Before & After Reflection ✦</div>
+      <div class="reflect-compare">
+        <div class="reflect-col">
+          <div class="rc-label">January — I was...</div>
+          <div class="rc-title">🌱 Where I Started</div>
+          <textarea class="write-field tall" placeholder="My mindset, body, habits, struggles at the start of the year..."></textarea>
+        </div>
+        <div class="reflect-col">
+          <div class="rc-label">December — I am now...</div>
+          <div class="rc-title">🌸 Where I Am Now</div>
+          <textarea class="write-field tall" placeholder="Who I've become, what I've achieved, how I've grown..."></textarea>
+        </div>
+      </div>
+      <div class="sec-label">✦ My Top 10 Wins This Year ✦</div>
+      <div id="winList"></div>
+      <div class="sec-label">✦ Glow Up Rating ✦</div>
+      <div class="grid-4" id="glowRatings"></div>
+      <div class="sec-label">✦ Letter to My Future Self ✦</div>
+      <textarea class="write-field tall" placeholder="Dear future me... Here's what I want you to know, to remember, to keep going..."></textarea>
+    </div>
+    <div class="page-footer">
+      <span class="pf-brand">Glow Up Annual Planner</span>
+      <span class="pf-page">Page 12 of 12 ✨</span>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<script>
+// ── PAGE NAVIGATION ──────────────────────────
+const pages = [
+  { id:'p1', label:'Cover 🎀' },
+  { id:'p2', label:'Vision 🌟' },
+  { id:'p3', label:'Monthly 📅' },
+  { id:'p4', label:'Weekly 🔄' },
+  { id:'p5', label:'Daily ☀️' },
+  { id:'p6', label:'Fitness 💪' },
+  { id:'p7', label:'Skincare 🧴' },
+  { id:'p8', label:'Mental 🧠' },
+  { id:'p9', label:'Hydration 💧' },
+  { id:'p10', label:'Habits 📊' },
+  { id:'p11', label:'Manifest ✨' },
+  { id:'p12', label:'Year-End 🌹' },
+];
+const navTabs = document.getElementById('navTabs');
+const navNum = document.getElementById('navNum');
+let currentPage = 0;
+
+pages.forEach((p, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
+  btn.textContent = p.label;
+  btn.onclick = () => showPage(i);
+  navTabs.appendChild(btn);
+});
+
+function showPage(i) {
+  document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(pages[i].id).classList.add('active');
+  navTabs.children[i].classList.add('active');
+  navNum.textContent = `${i+1} / ${pages.length}`;
+  currentPage = i;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── CHECKBOXES ──────────────────────────────
+function makeChecks(containerId, items) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  items.forEach(item => {
+    const row = document.createElement('div');
+    row.className = 'check-row';
+    const box = document.createElement('div');
+    box.className = 'check-box';
+    box.onclick = () => box.classList.toggle('checked');
+    const label = document.createElement('div');
+    label.className = 'check-label';
+    label.textContent = item;
+    row.appendChild(box); row.appendChild(label);
+    el.appendChild(row);
+  });
+}
+
+makeChecks('weekChecks', ['Moved my body 🏃‍♀️','Drank enough water 💧','Ate nourishing meals 🥗','Got 7+ hours sleep 😴','Had "me time" 🌸','Journaled or reflected 📝','Avoided toxic energy ✂️','Skincare routine done 🧴']);
+makeChecks('morningChecks', ['Made my bed 🛏️','Drank water first thing 💧','Skincare AM routine 🧴','Moved / stretched 🧘‍♀️','Set intention for day ✨','No phone first 30 min 📵']);
+makeChecks('eveningChecks', ['Skincare PM routine 🌙','Reflected on today 📝','Planned tomorrow 📋','Off screens by 10pm 📵','Grateful moment 💕','Bedtime tea or wind-down 🍵']);
+makeChecks('copingChecks', ['Deep breathing 🧘','Journaling 📝','Going for a walk 🚶‍♀️','Talking to a friend 💕','Music or playlist 🎵','Bath or self-care 🛁','Reading 📖','Crying it out (valid!) 💧']);
+makeChecks('sleepChecks', ['Off screens 1hr before 📵','Skincare PM done 🧴','Room cool & dark 🌙','Set alarm ⏰','Gratitude or prayer 🙏','Chamomile tea 🍵']);
+
+// ── MOOD ROWS ───────────────────────────────
+function makeMoods(containerId) {
+  const moods = [
+    {e:'😄',n:'Amazing'},{e:'😊',n:'Good'},{e:'🥰',n:'Loved'},
+    {e:'😐',n:'Okay'},{e:'😔',n:'Low'},{e:'😤',n:'Stressed'},
+    {e:'💆',n:'Calm'},{e:'🔥',n:'Motivated'}
+  ];
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  moods.forEach(m => {
+    const wrap = document.createElement('div');
+    wrap.style.textAlign = 'center';
+    const dot = document.createElement('div');
+    dot.className = 'mood-dot';
+    dot.textContent = m.e;
+    dot.onclick = () => { el.querySelectorAll('.mood-dot').forEach(d => d.classList.remove('sel')); dot.classList.add('sel'); };
+    const name = document.createElement('div');
+    name.className = 'mood-name';
+    name.textContent = m.n;
+    wrap.appendChild(dot); wrap.appendChild(name);
+    el.appendChild(wrap);
+  });
+}
+makeMoods('weekMood');
+makeMoods('dailyMood');
+
+// ── ENERGY STARS ─────────────────────────────
+const starsEl = document.getElementById('energyStars');
+for (let i = 1; i <= 5; i++) {
+  const s = document.createElement('span');
+  s.className = 'star'; s.textContent = '★'; s.dataset.v = i;
+  s.onclick = () => { starsEl.querySelectorAll('.star').forEach((x,idx) => x.classList.toggle('lit', idx < i)); };
+  starsEl.appendChild(s);
+}
+
+// ── MONTHLY GOALS GRID ───────────────────────
+const months = ['January 🌸','February 💕','March 🌷','April 🌼','May 🌺','June ☀️','July 🌊','August 🌻','September 🍂','October 🍁','November 🌙','December ❄️'];
+const mg = document.getElementById('monthGrid');
+months.forEach(m => {
+  const card = document.createElement('div');
+  card.className = 'month-card';
+  card.innerHTML = `<div class="month-name">${m}</div>
+    <input class="write-field" placeholder="My glow up goal..." style="font-size:0.75rem; margin-bottom:6px;">
+    <div class="month-lines"><div class="month-line"></div><div class="month-line"></div></div>`;
+  mg.appendChild(card);
+});
+
+// ── WATER DROPS ──────────────────────────────
+['mon','tue','wed','thu','fri','sat','sun'].forEach(day => {
+  const el = document.getElementById('drops_' + day);
+  if (!el) return;
+  for (let i = 0; i < 8; i++) {
+    const d = document.createElement('div');
+    d.className = 'drop';
+    d.onclick = () => d.classList.toggle('filled');
+    el.appendChild(d);
+  }
+});
+
+// ── SLEEP TRACKER ─────────────────────────────
+const sleepEl = document.getElementById('sleepTracker');
+const days7 = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const hrs = [5,6,7,8,9];
+const barWrap = document.createElement('div');
+barWrap.style.cssText = 'display:flex; gap:8px; align-items:flex-end; height:100px; margin-bottom:12px;';
+days7.forEach(day => {
+  const wrap = document.createElement('div');
+  wrap.className = 'sleep-bar-wrap';
+  const bar = document.createElement('div');
+  bar.className = 'sleep-bar';
+  bar.style.height = '40px';
+  bar.style.cursor = 'pointer';
+  let h = 40;
+  bar.onclick = () => { h = h >= 90 ? 20 : h + 14; bar.style.height = h + 'px'; bar.classList.toggle('active', h > 56); };
+  const label = document.createElement('div');
+  label.className = 'sleep-bar-day'; label.textContent = day;
+  wrap.appendChild(bar); wrap.appendChild(label);
+  barWrap.appendChild(wrap);
+});
+sleepEl.appendChild(barWrap);
+
+// ── HABIT TABLE ──────────────────────────────
+const ht = document.getElementById('habitTable');
+const head = document.createElement('thead');
+let th = '<tr><th class="habit-col">Habit</th>';
+for (let d = 1; d <= 31; d++) th += `<th>${d}</th>`;
+th += '</tr>';
+head.innerHTML = th;
+ht.appendChild(head);
+const tbody = document.createElement('tbody');
+const habitDefaults = ['🧴 Skincare','💧 Water (8 cups)','🏃 Exercise','📝 Journal','🧘 Meditate','🥗 Healthy Meal','📵 No Social Media PM','😴 Sleep 10pm'];
+habitDefaults.forEach(h => {
+  const row = document.createElement('tr');
+  let td = `<td class="habit-cell"><input type="text" value="${h}" style="min-width:110px;"></td>`;
+  for (let d = 1; d <= 31; d++) {
+    td += `<td><div class="h-check" onclick="this.classList.toggle('on')"></div></td>`;
+  }
+  row.innerHTML = td;
+  tbody.appendChild(row);
+});
+ht.appendChild(tbody);
+
+// ── MEASUREMENT TABLE ────────────────────────
+const measures = ['Weight','Waist','Hips','Chest','Arms','Thighs'];
+const mt = document.getElementById('measureTable');
+measures.forEach(m => {
+  const row = document.createElement('tr');
+  let td = `<td class="habit-cell" style="font-size:0.78rem; font-weight:500;">${m}</td>`;
+  for (let i = 0; i < 12; i++) td += `<td><input type="text" style="width:28px; text-align:center; border:none; background:transparent; font-size:0.72rem; outline:none; border-bottom:1px dashed rgba(183,110,121,0.3);"></td>`;
+  row.innerHTML = td;
+  mt.appendChild(row);
+});
+
+// ── WORKOUT LOG ───────────────────────────────
+const wl = document.getElementById('workoutLog');
+const wDays = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+const wGrid = document.createElement('div');
+wGrid.className = 'grid-4';
+wDays.forEach(day => {
+  const c = document.createElement('div');
+  c.className = 'card';
+  c.innerHTML = `<div class="card-title" style="font-size:0.8rem;">${day}</div>
+    <input class="write-field" placeholder="Workout type" style="font-size:0.72rem;">
+    <input class="write-field" placeholder="Duration" style="font-size:0.72rem; margin-top:4px;">`;
+  wGrid.appendChild(c);
+});
+wl.appendChild(wGrid);
+
+// ── SKINCARE ROUTINES ────────────────────────
+const amSteps = ['1. Cleanser','2. Toner / Essence','3. Vitamin C Serum','4. Eye Cream','5. Moisturizer','6. SPF (always!) ☀️'];
+const pmSteps = ['1. Oil / Balm Cleanser','2. Foam Cleanser','3. Toner','4. Treatment Serum','5. Moisturizer','6. Face Oil / Sleeping Mask'];
+makeChecks('amSkincare', amSteps);
+makeChecks('pmSkincare', pmSteps);
+
+// ── MOOD CALENDAR (31 days) ───────────────────
+const mc = document.getElementById('moodCalendar');
+const moodEmojis = ['😄','😊','🥰','😐','😔','😤','💆','🔥'];
+const dayLabels = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+dayLabels.forEach(d => {
+  const h = document.createElement('div');
+  h.style.cssText = 'font-size:0.6rem; text-align:center; color:var(--gray); font-weight:500; padding:4px;';
+  h.textContent = d;
+  mc.appendChild(h);
+});
+for (let i = 0; i < 31; i++) {
+  const cell = document.createElement('div');
+  cell.style.cssText = 'background:rgba(255,255,255,0.6); border:1px solid rgba(183,110,121,0.15); border-radius:8px; padding:6px 4px; text-align:center; cursor:pointer; transition: all 0.2s; min-height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center;';
+  cell.innerHTML = `<div style="font-size:0.6rem; color:var(--gray);">${i+1}</div><div style="font-size:1rem; opacity:0.3;">○</div>`;
+  let mIdx = 0;
+  cell.onclick = () => {
+    mIdx = (mIdx + 1) % moodEmojis.length;
+    cell.innerHTML = `<div style="font-size:0.6rem; color:var(--gray);">${i+1}</div><div style="font-size:1rem;">${moodEmojis[mIdx]}</div>`;
+  };
+  mc.appendChild(cell);
+}
+
+// ── MANIFESTATION LIST ───────────────────────
+const ml = document.getElementById('manifestList');
+for (let i = 1; i <= 5; i++) {
+  const row = document.createElement('div');
+  row.style.cssText = 'display:flex; align-items:center; gap:10px; margin-bottom:10px;';
+  row.innerHTML = `<span style="font-family:\'Cormorant Garamond\',serif; font-size:1.1rem; color:var(--rose-deep); font-weight:600; min-width:20px;">${i}.</span>
+    <input class="write-field" placeholder="I am so grateful that... / I have achieved..." style="flex:1;">
+    <span style="font-size:0.9rem; cursor:pointer; opacity:0.4;" title="Tick when manifested" onclick="this.style.opacity=1; this.textContent=\'✅\';">⭕</span>`;
+  ml.appendChild(row);
+}
+
+// ── WIN LIST ─────────────────────────────────
+const wl2 = document.getElementById('winList');
+for (let i = 1; i <= 10; i++) {
+  const row = document.createElement('div');
+  row.style.cssText = 'display:flex; align-items:center; gap:10px; margin-bottom:8px;';
+  row.innerHTML = `<span style="font-family:\'Cormorant Garamond\',serif; font-size:1rem; color:var(--gold); font-weight:600; min-width:20px;">${i}.</span>
+    <input class="write-field" placeholder="My win #${i}..." style="flex:1;">`;
+  wl2.appendChild(row);
+}
+
+// ── GLOW RATINGS ─────────────────────────────
+const gr = document.getElementById('glowRatings');
+const rAreas = ['Body 💪','Mindset 🧠','Skincare 🧴','Finances 💰'];
+rAreas.forEach(area => {
+  const c = document.createElement('div');
+  c.className = 'card';
+  c.style.textAlign = 'center';
+  c.innerHTML = `<div class="card-title" style="font-size:0.82rem; margin-bottom:8px;">${area}</div>
+    <div class="stars" style="justify-content:center;" data-area="${area}"></div>`;
+  gr.appendChild(c);
+  const starRow = c.querySelector('.stars');
+  for (let s = 1; s <= 5; s++) {
+    const st = document.createElement('span');
+    st.className = 'star'; st.textContent = '★'; st.dataset.v = s;
+    st.onclick = () => { starRow.querySelectorAll('.star').forEach((x,idx) => x.classList.toggle('lit', idx < s)); };
+    starRow.appendChild(st);
+  }
+});
+</script>
+</body>
+</html>
